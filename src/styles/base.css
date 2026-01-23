@@ -1,0 +1,67 @@
+/* ================================
+   Google Font – Poppins
+================================ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ================================
+   CSS Variables (Design System)
+================================ */
+:root {
+  /* 🎨 Brand Colors */
+  --color-primary: #F79C29;
+  --color-secondary: #F7E175;
+  --color-tertiary: #F2AC42;
+  --color-dark: #1A1003;
+  --color-muted: #5D6B81;
+  --color-white: #FFFFFF;
+  --color-gradient: #EDBC5A;
+
+
+  /* 🖋 Typography */
+  --font-primary: 'Poppins', sans-serif;
+
+  /* 🔠 Font Sizes */
+  --text-hero: 84px;
+  --text-section-heading: 48px;
+  --text-subheading: 32px;
+  --text-body: 20px;
+  --text-small: 16px;
+  --text-caption: 14px;
+
+  /* 📏 Line Heights */
+  --leading-hero: 1.1;
+  --leading-heading: 1.2;
+  --leading-body: 1.6;
+}
+
+/* ================================
+   CSS Reset / Base
+================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--color-white);
+  background-color: black;
+  -webkit-font-smoothing: antialiased;
+  perspective: 1400px;
+}
+#smooth-wrapper {
+  overflow: hidden;
+}
+
+
+.section {
+  height: auto;        /* allow natural height */
+}
+

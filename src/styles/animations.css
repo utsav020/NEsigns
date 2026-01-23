@@ -1,0 +1,118 @@
+.smooth-anim {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+
+
+/* TRUE OUTSIDE SCREEN → INTO SCREEN (3D) */
+
+
+@keyframes depthOutToIn {
+  0% {
+    opacity: 0;
+    transform: perspective(1200px) translateZ(-2000px) scale(0.2);
+  }
+  70% {
+    opacity: 1;
+    transform: perspective(1200px) translateZ(120px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1200px) translateZ(0) scale(1);
+  }
+}
+
+/* STAND OUT → COMES IN TWICE */
+@keyframes depthOutToInTwice {
+  0% {
+    opacity: 0;
+    transform: perspective(1200px) translateZ(-2200px) scale(0.15);
+  }
+  45% {
+    opacity: 1;
+    transform: perspective(1200px) translateZ(100px) scale(1.05);
+  }
+  65% {
+    opacity: 0;
+    transform: perspective(1200px) translateZ(-2200px) scale(0.15);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1200px) translateZ(0) scale(1);
+  }
+}
+
+.text-depth-in {
+  animation: depthOutToIn 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-style: preserve-3d;
+}
+
+.text-depth-in-twice {
+  animation: depthOutToInTwice 2.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-style: preserve-3d;
+}
+
+
+
+/* ///////   left ↔ right bounce     about compuny //////// */
+@keyframes arrowLeftRight {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+}
+
+.arrow-bounce {
+  display: inline-block;
+  animation: arrowLeftRight 1.2s ease-in-out infinite;
+}
+
+
+/* ///Wave animation */
+@keyframes wave-expand {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+
+  70% {
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: scale(1.4);
+    opacity: 0.2;
+  }
+}
+
+.wave-animation {
+  animation: wave-expand 4s ease-out infinite;
+  transform-origin: center;
+}
+
+
+
+
+/* ///////   up ↔ down bounce     footer massege Us amimation //////// */
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(100px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2.5s ease-in-out infinite;
+}
+
+
+
+
+
+
