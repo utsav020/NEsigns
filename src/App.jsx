@@ -24,7 +24,7 @@ export default function App() {
 
     const lenis = new Lenis({
       duration: 0.2,
-      easing: (t) => 1,
+      easing: () => 1,
       smooth: true,
       smoothTouch: false,
     });

@@ -1,12 +1,10 @@
-import { useState, useEffect } from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 export default function ServicesSection() {
-    const [animate, setAnimate] = useState(false);
-
-    useEffect(() => {
-        setAnimate(true);
-    }, []);
+    const sectionRef = useRef(null);
+    const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
 
     const services = [
         {
@@ -46,91 +44,285 @@ export default function ServicesSection() {
         }
     ];
 
-    return (
-        <section className="relative bg-gradient-to-tl from-black via-[#0b0b0b] to-[#2a1a00] px-4 py-8 
-        overflow-hidden">
+    // Animation variants
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.2
+            }
+        }
+    };
 
+    const headerVariants = {
+        hidden: { opacity: 0, y: -30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.8,
+                ease: [0.25, 0.46, 0.45, 0.94]
+            }
+        }
+    };
+
+    const cardVariants = {
+        hidden: { 
+            opacity: 0, 
+            y: 50,
+            scale: 0.9
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            transition: {
+                duration: 0.6,
+                ease: [0.25, 0.46, 0.45, 0.94]
+            }
+        }
+    };
+
+    const cardHoverVariants = {
+        rest: {
+            borderColor: 'rgba(75, 85, 99, 1)',
+            scale: 1
+        },
+        hover: {
+            borderColor: 'var(--color-gradient)',
+            scale: 1.02,
+            y: -5,
+            transition: {
+                duration: 0.3,
+                ease: "easeOut"
+            }
+        }
+    };
+
+    const textHoverVariants = {
+        rest: { 
+            color: '#9CA3AF',
+            scale: 1
+        },
+        hover: { 
+            color: 'var(--color-gradient)',
+            scale: 1.05,
+            transition: {
+                duration: 0.3,
+                ease: "easeOut"
+            }
+        }
+    };
+
+    const numberHoverVariants = {
+        rest: { 
+            opacity: 0,
+            scale: 1.1
+        },
+        hover: { 
+            opacity: 1,
+            scale: 1,
+            transition: {
+                duration: 0.4,
+                ease: "easeOut"
+            }
+        }
+    };
+
+    const arrowButtonVariants = {
+        rest: { 
+            backgroundColor: 'rgba(75, 85, 99, 1)',
+            scale: 1,
+            rotate: 0
+        },
+        hover: { 
+            backgroundColor: 'var(--color-gradient)',
+            scale: 1.1,
+            rotate: 45,
+            transition: {
+                duration: 0.3,
+                ease: "easeOut"
+            }
+        }
+    };
+
+    const circleVariants = {
+        hidden: { scale: 0, opacity: 0 },
+        visible: {
+            scale: 1,
+            opacity: 1,
+            transition: {
+                type: "spring",
+                stiffness: 200,
+                damping: 15,
+                delay: 0.3
+            }
+        }
+    };
+
+    const arrowIconVariants = {
+        hidden: { scale: 0, rotate: -180, opacity: 0 },
+        visible: {
+            scale: 1,
+            rotate: 0,
+            opacity: 1,
+            transition: {
+                type: "spring",
+                stiffness: 150,
+                damping: 12,
+                delay: 0.5
+            }
+        }
+    };
+
+    return (
+        <section 
+            ref={sectionRef}
+            className="relative bg-gradient-to-tl from-black via-[#0b0b0b] to-[#2a1a00] px-4 py-8 overflow-hidden"
+        >
             {/* Background container */}
-            <div className="absolute inset-0">
-                <div className="containers  px-8 h-full">
-                    <div className="bg-[#1A1717]  h-full shadow-2xl"></div>
+            <motion.div 
+                className="absolute inset-0"
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                transition={{ duration: 1 }}
+            >
+                <div className="containers px-8 h-full">
+                    <motion.div 
+                        className="bg-[#1A1717] h-full shadow-2xl"
+                        initial={{ scaleY: 0 }}
+                        animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        style={{ transformOrigin: 'top' }}
+                    />
                 </div>
-            </div>
+            </motion.div>
 
             <div className="relative z-10 container">
-
                 {/* Header Section */}
-                <div
-                    className={`flex flex-col items-center
-                         mb-10 transition-all duration-1000 ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
-                        }`}
+                <motion.div
+                    className="flex flex-col items-center mb-10"
+                    variants={headerVariants}
+                    initial="hidden"
+                    animate={isInView ? "visible" : "hidden"}
                 >
                     <div className="flex items-center justify-center gap-6 leading-none">
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text:6xl font-bold text-white">
+                        <motion.h2 
+                            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white"
+                            initial={{ opacity: 0, x: -30 }}
+                            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+                            transition={{ delay: 0.2, duration: 0.8 }}
+                        >
                             Look at
-                        </h2>
-                        <div className="w-50 h-15 bg-gray-300 rounded-full md:block hidden"></div>
+                        </motion.h2>
+                        <motion.div 
+                            className="w-50 h-15 bg-gray-300 rounded-full md:block hidden"
+                            variants={circleVariants}
+                            initial="hidden"
+                            animate={isInView ? "visible" : "hidden"}
+                        />
                     </div>
 
                     <div className="flex items-center justify-center gap-6 md:ml-25 ml-0">
-                        <div className="md:w-20 w-15 md:h-20 h-15 bg-[var(--color-gradient)] rounded-full flex items-center justify-center ">
+                        <motion.div 
+                            className="md:w-20 w-15 md:h-20 h-15 bg-[var(--color-gradient)] rounded-full flex items-center justify-center"
+                            variants={arrowIconVariants}
+                            initial="hidden"
+                            animate={isInView ? "visible" : "hidden"}
+                            whileHover={{ 
+                                scale: 1.1, 
+                                rotate: 360,
+                                transition: { duration: 0.6 }
+                            }}
+                        >
                             <img src="/images/WhiteArrow.png" alt="" />
-                        </div>
+                        </motion.div>
 
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text:6xl font-bold text-white">
+                        <motion.h2 
+                            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white"
+                            initial={{ opacity: 0, x: 30 }}
+                            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+                            transition={{ delay: 0.4, duration: 0.8 }}
+                        >
                             our Services
-                        </h2>
+                        </motion.h2>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Services Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-0">
+                <motion.div 
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-0"
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate={isInView ? "visible" : "hidden"}
+                >
                     {services.map((service, index) => (
-                        <div
+                        <motion.div
                             key={service.id}
-                            className={`transition-all duration-1000 ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
-                                }`}
-                            style={{ transitionDelay: `${index * 150}ms` }}
+                            variants={cardVariants}
+                            custom={index}
                         >
-                            <div className="group relative border border-gray-700 p-6 h-full hover:border-[var(--color-gradient)] transition-all duration-300 cursor-pointer">
+                            <motion.div 
+                                className="group relative border border-gray-700 p-6 h-full cursor-pointer overflow-hidden"
+                                variants={cardHoverVariants}
+                                initial="rest"
+                                whileHover="hover"
+                            >
+                                {/* Hover Background Effect */}
+                                <motion.div
+                                    className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient)]/5 to-transparent"
+                                    initial={{ opacity: 0 }}
+                                    whileHover={{ opacity: 1 }}
+                                    transition={{ duration: 0.3 }}
+                                />
 
                                 {/* Top Content */}
-                                <div className="mb-32">
-                                    <h3 className="text-2xl font-bold mb-2 text-gray-400 group-hover:text-[var(--color-gradient)] transition-all duration-300 ease-out scale-105 group-hover:scale-100">
+                                <div className="mb-32 relative z-10">
+                                    <motion.h3 
+                                        className="text-2xl font-bold mb-2"
+                                        variants={textHoverVariants}
+                                    >
                                         {service.title}
-                                    </h3>
+                                    </motion.h3>
 
-
-                                    <p className="text-sm text-gray-500 group-hover:text-[var(--color-gradient)] transition-all duration-300 ease-out scale-105 group-hover:scale-100">
+                                    <motion.p 
+                                        className="text-sm mb-4"
+                                        variants={textHoverVariants}
+                                    >
                                         {service.subtitle}
-                                    </p>
+                                    </motion.p>
 
-
-                                    <p className="text-gray-400 text-xs leading-relaxed mt-4 group-hover:text-[var(--color-gradient)] transition-all duration-300 ease-out scale-105 group-hover:scale-100">
+                                    <motion.p 
+                                        className="text-xs leading-relaxed"
+                                        variants={textHoverVariants}
+                                    >
                                         {service.description}
-                                    </p>
-
+                                    </motion.p>
                                 </div>
 
                                 {/* Bottom Section */}
                                 <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
-                                    <div className="w-12 h-12 rounded-full flex items-center justify-center bg-gray-700 group-hover:bg-[var(--color-gradient)] transition-all">
-                                          <ArrowUpRight />
-                                    </div>
+                                    <motion.div 
+                                        className="w-12 h-12 rounded-full flex items-center justify-center text-white"
+                                        variants={arrowButtonVariants}
+                                    >
+                                        <ArrowUpRight />
+                                    </motion.div>
 
-                                    <span
-                                        className="text-6xl font-black text-transparent group-hover:text-[var(--color-gradient)] transition-all duration-300 ease-out scale-110 group-hover:scale-100"
+                                    <motion.span
+                                        className="text-6xl font-black text-[var(--color-gradient)]"
                                         style={{ WebkitTextStroke: '2px rgba(75, 85, 99, 0.5)' }}
+                                        variants={numberHoverVariants}
                                     >
                                         {service.number}
-                                    </span>
-
+                                    </motion.span>
                                 </div>
-
-                            </div>
-                        </div>
+                            </motion.div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );
