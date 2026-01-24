@@ -6,7 +6,7 @@ const Loader = () => {
 
   useEffect(() => {
     // Start moving to navbar
-    const t1 = setTimeout(() => setToNav(true), 1200);
+    const t1 = setTimeout(() => setToNav(true), 800);
 
     // Remove loader after animation
     const t2 = setTimeout(() => setHide(true), 2000);
@@ -36,16 +36,17 @@ const Loader = () => {
         src="/images/LoderLogo.svg"
         alt="Loader Logo"
         style={{
-          width: toNav 
-            ? "clamp(70px, 15vw, 110px)" 
-            : "clamp(100px, 25vw, 160px)",
+          // width: toNav 
+          //   ? "clamp(70px, 15vw, 110px)" 
+          //   : "clamp(100px, 25vw, 160px)",
           transform: toNav
             ? `translate(
-                clamp(-45vw, calc(-100vw + 80px), -35vw), 
-                clamp(-45vh, calc(-100vh + 60px), -38vh)
+                clamp(-42vw, calc(-100vw + 80px), -35vw), 
+                clamp(-47vh, calc(-100vh + 60px), -38vh)
               ) scale(1)`
-            : "scale(1.1)",
-          transition: "all 0.9s ease-in-out",
+            : "scale(1.2)",
+         
+          transition: "all 1s ease",
           transformOrigin: "center",
         }}
       />
