@@ -154,7 +154,7 @@ export default function AboutCompany() {
               ABOUT COMPANY
             </motion.span>
             <motion.span
-              className="text-[var(--color-gradient)] text-base sm:text-lg"
+              className="text-[var(--color-gradient)] text-base sm:text-lg arrow-bounce"
               variants={arrowVariants}
             >
               <ArrowDownRight />

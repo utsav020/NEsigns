@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Lenis from "@studio-freight/lenis";
-
-import Home from "./pages/Home";
 import Loader from "./components/Loader";
 import Navbar from "./components/layout/Navbar";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Home from "./pages/homePages/Home";
+import About from "./pages/aboutPages/About";
 
 gsap.registerPlugin(ScrollTrigger);
 export default function App() {
@@ -53,6 +53,7 @@ export default function App() {
 
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </>
       )}

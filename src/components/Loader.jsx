@@ -33,12 +33,12 @@ const Loader = () => {
       }}
     >
       <img
-        src="/images/LoderLogo.svg"
+        src="/images/Hero/Logo.png"
         alt="Loader Logo"
         style={{
-          // width: toNav 
-          //   ? "clamp(70px, 15vw, 110px)" 
-          //   : "clamp(100px, 25vw, 160px)",
+          width: toNav 
+            ? "clamp(70px, 15vw, 110px)" 
+            : "clamp(100px, 25vw, 160px)",
           transform: toNav
             ? `translate(
                 clamp(-42vw, calc(-100vw + 80px), -35vw), 

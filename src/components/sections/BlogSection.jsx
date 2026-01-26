@@ -1,6 +1,6 @@
-import { ArrowDownRight, ArrowRight } from 'lucide-react';
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { ArrowDownRight, ArrowRight } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 export default function BlogNewsSection() {
   const sectionRef = useRef(null);
@@ -9,27 +9,27 @@ export default function BlogNewsSection() {
   const blogPosts = [
     {
       id: 1,
-      date: 'February - 22th 2024',
-      title: 'Will you be attending Affiliate Summit Europe?',
+      date: "February - 22th 2024",
+      title: "Will you be attending Affiliate Summit Europe?",
       excerpt:
-        'I have been a loyal customer of this auto parts company for years and I cannot recommend them enough. Their extensive selection.',
-      image: '/images/Blog/Img_01.png',
+        "I have been a loyal customer of this auto parts company for years and I cannot recommend them enough. Their extensive selection.",
+      image: "/images/Blog/Img_01.png",
     },
     {
       id: 2,
-      date: 'February - 22th 2024',
-      title: 'Will you be attending Affiliate Summit Europe?',
+      date: "February - 22th 2024",
+      title: "Will you be attending Affiliate Summit Europe?",
       excerpt:
-        'I have been a loyal customer of this auto parts company for years and I cannot recommend them enough. Their extensive selection.',
-      image: '/images/Blog/Img_02.png',
+        "I have been a loyal customer of this auto parts company for years and I cannot recommend them enough. Their extensive selection.",
+      image: "/images/Blog/Img_02.png",
     },
     {
       id: 3,
-      date: 'February - 22th 2024',
-      title: 'Will you be attending Affiliate Summit Europe?',
+      date: "February - 22th 2024",
+      title: "Will you be attending Affiliate Summit Europe?",
       excerpt:
-        'I have been a loyal customer of this auto parts company for years and I cannot recommend them enough. Their extensive selection.',
-      image: '/images/Blog/Img_03.png',
+        "I have been a loyal customer of this auto parts company for years and I cannot recommend them enough. Their extensive selection.",
+      image: "/images/Blog/Img_03.png",
     },
   ];
 
@@ -41,9 +41,9 @@ export default function BlogNewsSection() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
   };
 
   const labelVariants = {
@@ -53,9 +53,9 @@ export default function BlogNewsSection() {
       x: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const containerVariants = {
@@ -64,16 +64,16 @@ export default function BlogNewsSection() {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
+        delayChildren: 0.3,
+      },
+    },
   };
 
   const cardVariants = {
     hidden: {
       opacity: 0,
       y: 60,
-      scale: 0.95
+      scale: 0.95,
     },
     visible: {
       opacity: 1,
@@ -81,46 +81,46 @@ export default function BlogNewsSection() {
       scale: 1,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
   };
 
   const cardHoverVariants = {
     rest: {
-      borderColor: 'rgba(75, 85, 99, 1)',
-      boxShadow: '0 0 0 rgba(234, 179, 8, 0)'
+      borderColor: "rgba(75, 85, 99, 1)",
+      boxShadow: "0 0 0 rgba(234, 179, 8, 0)",
     },
     hover: {
-      borderColor: 'rgba(234, 179, 8, 0.5)',
-      boxShadow: '0 10px 40px rgba(234, 179, 8, 0.1)',
+      borderColor: "rgba(234, 179, 8, 0.5)",
+      boxShadow: "0 10px 40px rgba(234, 179, 8, 0.1)",
       y: -5,
       transition: {
         duration: 0.3,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const imageVariants = {
     rest: {
       y: 0,
-      scale: 1
+      scale: 1,
     },
     hover: {
       y: 96, // Slide down 24 * 4 = 96px (translate-y-24)
       scale: 1.05,
       transition: {
         duration: 0.7,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
   };
 
   const excerptVariants = {
     rest: {
       opacity: 0,
-      y: 20
+      y: 20,
     },
     hover: {
       opacity: 1,
@@ -128,9 +128,9 @@ export default function BlogNewsSection() {
       transition: {
         duration: 0.5,
         delay: 0.2,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const arrowButtonVariants = {
@@ -138,7 +138,7 @@ export default function BlogNewsSection() {
       scale: 0,
       rotate: -90,
       opacity: 0,
-      y: 0
+      y: 0,
     },
     hover: {
       scale: 1,
@@ -150,9 +150,9 @@ export default function BlogNewsSection() {
         delay: 0.1,
         type: "spring",
         stiffness: 200,
-        damping: 15
-      }
-    }
+        damping: 15,
+      },
+    },
   };
 
   const arrowIconVariants = {
@@ -162,9 +162,8 @@ export default function BlogNewsSection() {
       transition: {
         duration: 0.6,
         repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
+      },
+    },
   };
 
   return (
@@ -183,24 +182,14 @@ export default function BlogNewsSection() {
           >
             <motion.span
               className="text-yellow-500 text-sm tracking-widest"
-              initial={{ letterSpacing: '0.05em' }}
-              animate={{ letterSpacing: '0.15em' }}
+              initial={{ letterSpacing: "0.05em" }}
+              animate={{ letterSpacing: "0.15em" }}
               transition={{ duration: 0.8 }}
             >
               BLOG & NEWS
             </motion.span>
-            <motion.div
-              animate={{
-                y: [0, 5, 0],
-                rotate: [0, 10, 0]
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              <ArrowDownRight className="text-yellow-500 w-5 h-5" />
+            <motion.div>
+              <ArrowDownRight className="text-yellow-500 w-5 h-5 arrow-bounce" />
             </motion.div>
           </motion.div>
           <motion.h2
@@ -223,10 +212,7 @@ export default function BlogNewsSection() {
           animate={isInView ? "visible" : "hidden"}
         >
           {blogPosts.map((post, index) => (
-            <motion.div
-              key={post.id}
-              variants={cardVariants}
-            >
+            <motion.div key={post.id} variants={cardVariants}>
               <motion.div
                 className="relative cursor-pointer border rounded-lg overflow-hidden"
                 variants={cardHoverVariants}
