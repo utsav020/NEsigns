@@ -10,7 +10,8 @@ export default function ServicesSection() {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-[var(--color-background)] via-black to-black py-6 sm:py-8 md:py-10 px-4 sm:px-6 md:px-8">
+    <div className="bg-gradient-to-r from-[var(--color-background)] via-black to-black 
+    py-6 sm:py-8 md:py-10 px-4 sm:px-6 md:px-8">
       <div className="container ">
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-6 sm:mb-8 md:mb-10">
           {/* Left Side - Images */}
@@ -42,8 +43,8 @@ export default function ServicesSection() {
               </div>
 
               {/* Bottom Left - Light Bulb */}
-              <div className="buld-img absolute top-1/2 left-0 rounded-xl sm:rounded-2xl overflow-hidden
-              w-40 h-40 sm:w-50 sm:h-50 md:w-60 md:h-60 lg:w-50 lg:h-50 xl:w-60 xl:h-60 
+              <div className="buld-img relative rounded-3xl overflow-visible -top-50 left-0  
+              w-40 h-40 sm:w-50 sm:h-50 md:w-60 md:h-60 lg:w-50 lg:h-50 xl:w-70 xl:h-70 
               ">
                 <img
                   src="/images/about/Img_03.png"
@@ -53,7 +54,7 @@ export default function ServicesSection() {
               </div>
 
               {/* Bottom Right - Get in Touch Button */}
-              <div className="sm:absolute bottom-2 right-2 sm:bottom-3 sm:right-3 lg:bottom-4 lg:right-4  md:bottom-0 md:-right-4
+              <div className="sm:absolute bottom-2 right-2 sm:bottom-3 sm:right-3 md:bottom-60 md:-right-10 lg:bottom-70 lg:right-10
               justify-self-center mt-5">
                 <button
                   className="group flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5 md:px-5 md:py-3
