@@ -9,10 +9,10 @@ import {
 
 export default function BestAgency() {
   return (
-    <section className="bg-gradient-to-br from-[var(--color-background)] via-black to-black md:py-20 py-10">
+    <section className="bg-gradient-to-br from-[var(--color-background)] via-black to-black md:py-10 py-5">
       {/* ===== TOP CONTENT ===== */}
       <div className="container">
-        <div className="grid lg:grid-cols-2 gap-16 items-center lg:mb-24 mb-15">
+        <div className="grid lg:grid-cols-2 gap-16 items-center lg:mb-24 mb-0">
           {/* Left Content */}
           <div>
             <div className="flex items-center gap-2 mb-8 text-[var(--color-gradient)]">

@@ -35,14 +35,14 @@ export default function HightqytPrinting() {
       </div>
 
       {/* Main Content */}
-      <div className="px-8 relative z-10 top-5 overflow-hidden ">
-        <div className="flex text-start containers">
+      <div className=" relative z-10 top-5 overflow-hidden ">
+        <div className="flex md:text-start text-center containers">
           <div className={`opacity-0 ${animate ? "text-depth-in" : ""}`}>
             <h1
-              className="font-bold flex gap-5 "
+              className="font-bold flex gap-8 md:text-start text-center"
               style={{ textShadow: "0 2px 4px #bbbcbd" }}
             >
-              <p className="text-white text-4xl md:text-5xl lg:text-6xl xl:text-8xl">
+              <p className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
                 HIGH-QUALITY 
                 <span className=" text-[var(--color-primary)]"> PRINTING</span>
               </p>
@@ -52,7 +52,7 @@ export default function HightqytPrinting() {
 
         <div className={`opacity-0 ${animate ? "text-depth-in-twice" : ""}`}>
           <h2
-            className="text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-black tracking-wider containers md:text-end text-start"
+            className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-wider containers md:text-end text-center"
             style={{
               WebkitTextStroke: "2px var(--color-muted)",
               color: "transparent",

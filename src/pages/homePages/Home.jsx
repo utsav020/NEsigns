@@ -1,16 +1,17 @@
 import React from 'react'
 import './home.css';
-import Hero from '../../components/sections/Hero'
+import Hero from '../../components/sections/home/Hero'
 import Footer from '../../components/layout/Footer'
-import BrandStandOut from '../../components/sections/BrandStandOut'
-import OurWork from '../../components/sections/OurWork'
-import ServicesSection from '../../components/sections/ServicesSection'
-import PortfolioSection from '../../components/sections/PortfolioSection'
-import AboutCompany from '../../components/sections/AboutCompany'
-import BlogSection from '../../components/sections/BlogSection'
-import HeroSlider from '../../components/sections/HeroSlider'
-import TestimonialSlider from '../../components/sections/TestimonialSlider'
-import PlayVideo from '../../components/sections/PlayVideo'
+import BrandStandOut from '../../components/sections/home/BrandStandOut'
+import OurWork from '../../components/sections/home/OurWorkExperience'
+import ServicesSection from '../../components/sections/home/ServicesSection'
+import PortfolioSection from '../../components/sections/home/PortfolioSection'
+import AboutCompany from '../../components/sections/home/AboutCompany'
+import BlogSection from '../../components/sections/home/BlogSection'
+import HeroSlider from '../../components/sections/home/HeroSlider'
+import TestimonialSlider from '../../components/sections/home/TestimonialSlider'
+import PlayVideo from '../../components/sections/home/PlayVideo'
+import OurWorkExperience from '../../components/sections/home/OurWorkExperience';
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
       <Hero/>
       <HeroSlider/>
       <BrandStandOut/>
-      <OurWork/>
+      <OurWorkExperience/>
       <AboutCompany/>
       <ServicesSection/>
       <PortfolioSection/>

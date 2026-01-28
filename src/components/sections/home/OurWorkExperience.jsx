@@ -31,7 +31,7 @@ function useCounter(target, start, duration = 1200) {
 }
 
 /* ================= COMPONENT ================= */
-export default function OurWork() {
+export default function OurWorkExperience() {
   const [startCount, setStartCount] = useState(false);
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: false, amount: 0.3 });

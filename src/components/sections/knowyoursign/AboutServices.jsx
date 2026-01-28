@@ -11,7 +11,7 @@ export default function ServicesSection() {
 
   return (
     <div className="bg-gradient-to-br from-[var(--color-background)] via-black to-black 
-      py-8 px-4 sm:px-6 lg:px-8">
+      py-0 sm:py-8">
       <div className="container ">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16">
           
@@ -47,11 +47,11 @@ export default function ServicesSection() {
               </div>
 
               {/* Light Bulb - Desktop Only */}
-              <div className="hidden lg:block absolute -bottom-12 xl:-bottom-10 left-10 
-                w-60 h-60 
+              <div className="hidden lg:block absolute xl:-bottom-10 lg:bottom-0 lg:left-0 left-10 -bottom-12
+                w-40 h-40 
                 2xl:w-60 2xl:h-60
                 xl:w-50 xl:h-50 
-                lg:w-100 lg:h-100
+                lg:w-80 lg:h-80
                 rounded-3xl overflow-hidden z-10">
                 <img
                   src="/images/about/Img_03.png"

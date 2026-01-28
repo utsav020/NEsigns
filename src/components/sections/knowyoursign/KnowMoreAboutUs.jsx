@@ -66,10 +66,10 @@ const KnowMoreAboutUs = () => {
   };
 
   return (
-    <section ref={sectionRef} className="py-10 px-4">
+    <section ref={sectionRef} className="mt-5">
       {/* Header */}
       <motion.div
-        className="text-center mb-16"
+        className="text-center mb-5"
         variants={headerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
@@ -79,7 +79,7 @@ const KnowMoreAboutUs = () => {
           variants={labelVariants}
         >
           <motion.span
-            className="text-yellow-500 text-sm tracking-widest"
+            className="text-[var(--color-gradient)] text-sm tracking-widest"
             initial={{ letterSpacing: "0.05em" }}
             animate={{ letterSpacing: "0.15em" }}
             transition={{ duration: 0.8 }}
@@ -87,7 +87,7 @@ const KnowMoreAboutUs = () => {
             Who we are
           </motion.span>
           <motion.div>
-            <ArrowDownRight className="text-yellow-500 w-5 h-5 arrow-bounce" />
+            <ArrowDownRight className="text-[var(--color-gradient)] w-5 h-5 arrow-bounce" />
           </motion.div>
         </motion.div>
         <motion.h2
