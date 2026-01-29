@@ -1,79 +1,139 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
+import { useLocation } from "react-router-dom";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // to locate current page
+  const location = useLocation();
+  const isActive = (path) => location.pathname === path;
+
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "Services +", href: "/services" },
-    { name: "Know your sign ", href: "/know_your_sign " },
+    {
+      name: "Services",
+      href: "/services",
+      submenu: [
+        { name: "Printing Products", href: "/services/printing" },
+        {
+          name: "Signage",
+          href: "/services/signage",
+          submenu: [
+            { name: "Exterior Sign", href: "/services/signage/exterior" },
+            { name: "Interior Sign", href: "/services/signage/interior" },
+            {
+              name: "LED / Digital Board",
+              href: "/services/signage/led-board",
+            },
+            { name: "LED Neon Sign", href: "/services/signage/neon" },
+            { name: "Window Graphics", href: "/services/signage/window" },
+            { name: "Vehicle Graphics", href: "/services/signage/vehicle" },
+          ],
+        },
+        { name: "Direct Mailing", href: "/services/direct-mailing" },
+        { name: "Web Designing", href: "/services/web-design" },
+        { name: "SEO", href: "/services/seo" },
+      ],
+    },
+    { name: "Know your sign", href: "/know_your_sign" },
     { name: "Apparel", href: "/apparel" },
     { name: "Promotional products", href: "/promotional_products" },
     { name: "Our work", href: "/our_work" },
     { name: "Contact us", href: "/contactUs" },
-
   ];
 
   useEffect(() => {
     if (isMenuOpen) {
-      document.documentElement.style.overflow = "hidden";
       document.body.style.overflow = "hidden";
-      document.body.style.position = "fixed";
-      document.body.style.width = "100%";
     } else {
-      document.documentElement.style.overflow = "";
       document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.width = "";
     }
-
     return () => {
-      document.documentElement.style.overflow = "";
       document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.width = "";
     };
   }, [isMenuOpen]);
 
   return (
     <>
-      <nav className="sticky top-0 left-0 right-0 bg-gradient-to-r from-black via-black to-[#816025] 
-      z-50">
-        <div className="">
-          <div className="containers flex justify-between items-center h-20">
+      <nav className="sticky top-0 left-0 right-0 bg-gradient-to-r from-black via-black to-[#816025] z-50">
+        <div className="containers">
+          <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <div className="flex flex-col">
-                <img src="/images/Hero/Logo.png" className=" w-30 xl:w-40" />
-              </div>
+              <img
+                src="/images/Hero/Logo.png"
+                alt="Logo"
+                className="w-30 xl:w-40 item-center"
+              />
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden xl:flex items-center xl:space-x-8 lg:space-x-3">
+            <div className="hidden xl:flex items-center space-x-8">
               {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-white hover:text-yellow-400 transition-colors duration-300 text-sm 
-                  font-medium tracking-wide"
-                >
-                  {item.name}
-                </a>
+                <div key={item.name} className="relative group py-6">
+                  <a
+                    href={item.href}
+                    className={`relative text-sm font-medium tracking-wide transition-colors duration-300
+                      ${isActive(item.href) ? "text-[var(--color-gradient)]" : "text-white hover:text-[var(--color-gradient)]"}`}
+                  >
+                    {item.name}
+                    {isActive(item.href) && (
+                      <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-[var(--color-gradient)] rounded-full"></span>
+                    )}
+                  </a>
+
+                  {/* First level submenu */}
+                  {item.submenu && (
+                    <div className="absolute left-0 top-full mt-0 w-56 bg-white shadow-xl border border-gray-200 rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                      {item.submenu.map((sub, index) => (
+                        <div key={sub.name} className="relative group/sub">
+                          <a
+                            href={sub.href}
+                            className={`relative flex justify-between items-center px-4 py-3 cursor-pointer transition duration-200
+                              ${isActive(sub.href) ? "bg-[var(--color-gradient)] text-black" : "text-black hover:bg-[var(--color-gradient)]"}
+                              ${index === 0 ? "rounded-t-xl" : ""}
+                              ${index === item.submenu.length - 1 ? "rounded-b-xl" : ""}
+                            `}
+                          >
+                            {sub.name}
+                            {sub.submenu && <span className="text-xs">▶</span>}
+                          </a>
+
+                          {/* Second level submenu */}
+                          {sub.submenu && (
+                            <div className="absolute left-full top-0 ml-1 w-64 bg-white shadow-xl border border-gray-200 rounded-xl opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300">
+                              {sub.submenu.map((child, childIndex) => (
+                                <a
+                                  key={child.name}
+                                  href={child.href}
+                                  className={`relative block px-4 py-3 cursor-pointer transition duration-200
+                                    ${isActive(child.href) ? "bg-[var(--color-gradient)] text-black" : "text-black hover:bg-[var(--color-gradient)]"}
+                                    ${childIndex === 0 ? "rounded-t-xl" : ""}
+                                    ${childIndex === sub.submenu.length - 1 ? "rounded-b-xl" : ""}
+                                  `}
+                                >
+                                  {child.name}
+                                </a>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
 
-            {/* Button */}
-            <div className="flex justify-center items-center">
+            {/* Get In Touch Button */}
+            <div className="hidden xl:block">
               <button
-                className="hidden xl:flex group items-center gap-3 px-6 py-3 
-                border border-[var(--color-muted)] rounded-full text-[var(--color-gradient)] "
+                className="flex group items-center gap-3 px-6 py-2 border border-[var(--color-gradient)] rounded-full text-white 
+              hover:[var(--color-gradient)] transition-all"
               >
                 <span className="text-sm">Get In Touch</span>
-
-                <span className="text-white">
-                  <ArrowRight />
-                </span>
+                <ArrowRight size={18} />
               </button>
             </div>
 
@@ -81,7 +141,7 @@ export default function Navbar() {
             <div className="xl:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-white hover:text-yellow-400 transition-colors relative z-50"
+                className="text-white z-50 relative"
               >
                 {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
@@ -90,16 +150,15 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Navigation - Full Screen Overlay */}
+      {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-gradient-to-r from-black via-black to-[#816025] z-40 
-        xl:hidden overflow-hidden">
-          <div className="container mt-15 min-h-screen">
+        <div className="fixed inset-0 bg-black z-40 xl:hidden pt-35 px-6">
+          <div className="flex flex-col space-y-6">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="block text-white hover:text-yellow-400 transition-colors duration-300 text-base font-medium py-2"
+                className="text-white text-xl font-medium border-b border-gray-800 pb-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}

@@ -10,6 +10,7 @@ import Blog from "./pages/blogPages/Blog";
 import KnowYourSign from "./pages/knowyoursignPages/KnowYourSign";
 import Services from "./pages/servicesPages/Services";
 import OurWork from "./pages/ourworkPages/OurWork";
+import Signages from "./pages/servicesPages/Signages";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -58,7 +59,8 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/know_your_sign" element={<KnowYourSign />} />
-            <Route path="/services" element={<Services />} />
+            <Route path="/services" element={<Services />} />/services/signage
+            <Route path="/services/signage" element={<Signages/>} />
             <Route path="/our_work" element={<OurWork/>} />
             <Route path="/blogs" element={<Blog />} />
           </Routes>
