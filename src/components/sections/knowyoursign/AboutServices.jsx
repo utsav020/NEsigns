@@ -3,7 +3,7 @@ import { ArrowRight, ArrowDownRight } from "lucide-react";
 
 export default function ServicesSection() {
   const services = [
-    { left: "PRINTING PRODUCTS", right: "DIRECT MAILING" },
+    { left: "Printing", right: "DIRECT MAILING" },
     { left: "SIGNAGE", right: "WEB DESIGNING" },
     { left: "WALL & STREET SIGNS", right: "SEO" },
     { left: "AWNING & CANOPY", right: "MOBILE APPS" },

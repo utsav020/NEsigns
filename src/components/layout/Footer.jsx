@@ -15,7 +15,7 @@ export default function Footer() {
     
     
     { name: "Signage", href: "/services/signage" },
-    { name: "Printing Products", href: "/services/printing" },
+    { name: "Printing", href: "/services/printing" },
     { name: "Direct Mailing", href: "/services/direct-mailing" },
     { name: "Web Designing", href: "/services/web-design" },
     { name: "SEO", href: "/services/seo" },
@@ -24,7 +24,7 @@ export default function Footer() {
   const Signage = [
     { name: "Exterior Sign", href: "/categories/exterior-sign" },
     { name: "Interior Sign", href: "/categories/interior-sign" },
-    { name: "LED / Digital Board", href: "/categories/led-digital-board" },
+    { name: "LED Digital Board", href: "/categories/led-digital-board" },
     { name: "LED Neon Sign", href: "/categories/led-neon-sign" },
     { name: "Window & Wall Graphics", href: "/categories/window-graphics" },
   ];
@@ -113,7 +113,7 @@ export default function Footer() {
                 </span>
                 <img
                   className="arrow-bounce h-2 w-2"
-                  src="/portfolio/ArrowUpRight.png"
+                  src="/images/ArrowUpRight.png"
                   alt="ArrowUpRight.png"
                 />
               </a>

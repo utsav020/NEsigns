@@ -34,7 +34,7 @@ const services = [
 const cards = [
   {
     service: "Printing",
-    category: "Printing Products",
+    category: "Printing",
     title: "NE SIGNS",
     subtitle: "Companies",
     image: "/images/Hero/Img-5.png", // Placeholder
@@ -243,7 +243,7 @@ export default function ServicesShowcase() {
 
                   {/* Arrow Icon */}
                   <motion.div className="w-10 h-10 flex items-center justify-center arrow-bounce">
-                    <img src="/portfolio/ArrowUpRight.png" alt="Arrow" />
+                    <img src="/images/ArrowUpRight.png" alt="Arrow" />
                   </motion.div>
                 </div>
                 <motion.div className="border-t border-gray-800 mt-5" />

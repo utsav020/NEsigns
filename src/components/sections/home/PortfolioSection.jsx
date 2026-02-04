@@ -275,7 +275,7 @@ export default function PortfolioSection() {
                   </motion.div>
 
                   <motion.div className="w-10 h-10 flex items-center justify-center arrow-bounce">
-                    <img src="/portfolio/ArrowUpRight.png" alt="Arrow" />
+                    <img src="/images/ArrowUpRight.png" alt="Arrow" />
                   </motion.div>
                 </div>
                 <motion.div className="border-t border-gray-800" />
@@ -337,7 +337,7 @@ export default function PortfolioSection() {
                   </motion.div>
 
                   <motion.div className="w-10 h-10 flex items-center justify-center arrow-bounce">
-                    <img src="/portfolio/ArrowUpRight.png" alt="Arrow" />
+                    <img src="/images/ArrowUpRight.png" alt="Arrow" />
                   </motion.div>
                 </div>
                 <motion.div className="border-t border-gray-800" />
@@ -402,7 +402,7 @@ export default function PortfolioSection() {
                   </motion.div>
 
                   <motion.div className="w-10 h-10 flex items-center justify-center arrow-bounce">
-                    <img src="/portfolio/ArrowUpRight.png" alt="Arrow" />
+                    <img src="/images/ArrowUpRight.png" alt="Arrow" />
                   </motion.div>
                 </div>
                 <motion.div className="border-t border-gray-800" />
@@ -464,7 +464,7 @@ export default function PortfolioSection() {
                   </motion.div>
 
                   <motion.div className="w-10 h-10 flex items-center justify-center arrow-bounce">
-                    <img src="/portfolio/ArrowUpRight.png" alt="Arrow" />
+                    <img src="/images/ArrowUpRight.png" alt="Arrow" />
                   </motion.div>
                 </div>
                 <motion.div className="border-t border-gray-800" />

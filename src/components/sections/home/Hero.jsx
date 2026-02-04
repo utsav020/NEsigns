@@ -160,7 +160,7 @@ export default function Hero() {
       </div>
 
       {/* Top Right Decorative Shapes */}
-      <motion.div 
+      {/* <motion.div 
         variants={rotateIn}
         className="absolute hero-black-ring"
       >
@@ -171,7 +171,7 @@ export default function Hero() {
             className="w-full h-full object-contain rotate-slow"
           />
         </div>
-      </motion.div>
+      </motion.div> */}
 
       {/* Yellow Lines */}
       <motion.div 

@@ -1,5 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, ArrowRight, ChevronRight } from "lucide-react";
+import {
+  Menu,
+  X,
+  ArrowRight,
+  ChevronRight,
+  LayoutGrid,
+  Image,
+  Monitor,
+  Zap,
+  Layers,
+  Printer,
+  Mail,
+  Globe,
+  Search,
+} from "lucide-react";
+
 import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
@@ -34,22 +49,28 @@ export default function Navbar() {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "Services +", href: "/services",
-      submenu: [
-        { name: "Signage ", href: "/services/signage",
-          submenu: [
-            { name: "Exterior Sign", href: "/categories/exterior-sign" },
-            { name: "Interior Sign", href: "/categories/interior-sign" },
-            { name: "LED / Digital Board", href: "/categories/led-digital-board",            },
-            { name: "LED Neon Sign", href: "/categories/led-neon-sign" },
-            { name: "Window & Wall Graphics", href: "/categories/window-graphics" },
-          ],
-        },
-        { name: "Printing Products", href: "/services/printing" },
-        { name: "Direct Mailing", href: "/services/direct-mailing" },
-        { name: "Web Designing", href: "/services/web-design" },
-        { name: "SEO", href: "/services/seo" },
-      ],
+    {
+      name: "Services +",
+      href: "/services",
+     submenu: [
+  {
+    name: "Signage",
+    href: "/services/signage",
+    icon: LayoutGrid,
+    submenu: [
+      { name: "Exterior Sign", href: "/categories/exterior-sign", icon: Image },
+      { name: "Interior Sign", href: "/categories/interior-sign", icon: Layers },
+      { name: "LED Digital Board", href: "/categories/led-digital-board", icon: Monitor },
+      { name: "LED Neon Sign", href: "/categories/led-neon-sign", icon: Zap },
+      { name: "Window & Wall Graphics", href: "/categories/window-graphics", icon: Image },
+    ],
+  },
+  { name: "Printing", href: "/services/printing", icon: Printer },
+  { name: "Direct Mailing", href: "/services/direct-mailing", icon: Mail },
+  { name: "Web Designing", href: "/services/web-design", icon: Globe },
+  { name: "SEO", href: "/services/seo", icon: Search },
+],
+
     },
     { name: "Apparel", href: "/apparel" },
     { name: "Promotional products", href: "/promotional_products" },
@@ -70,7 +91,11 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="sticky top-0 left-0 right-0 bg-gradient-to-r from-black via-black to-[#816025] z-50">
+      <nav
+        className="sticky top-0 left-0 right-0 z-50 
+  bg-[#00000033] backdrop-blur-xs 
+  border-b border-white/20 h-25"
+      >
         <div className="containers">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
@@ -101,22 +126,35 @@ export default function Navbar() {
 
                   {/* First level submenu */}
                   {item.submenu && (
-                    <div className="absolute left-0 top-full mt-0 w-56 bg-white shadow-xl border border-gray-200 rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                    <div
+                      className="absolute left-0 top-full mt-2 w-64
+  bg-black/80 backdrop-blur-xxl
+  border border-white/30
+  rounded-2xl
+  shadow-[0_20px_60px_rgba(0,0,0,0.6)]
+  opacity-0 invisible
+  group-hover:opacity-100 group-hover:visible
+  transition-all duration-300"
+                    >
                       {item.submenu.map((sub, index) => (
                         <div key={sub.name} className="relative group/sub">
                           <Link
                             to={sub.href}
-                            className={`relative flex justify-between items-center px-4 py-3 transition duration-200
-    ${
-      isActive(sub.href)
-        ? "bg-[var(--color-gradient)] overflow-hidden rounded-xl text-black"
-        : "text-black hover:text-[var(--color-gradient)]"
-    }
-    ${index === 0 ? "rounded-t-xl" : ""}
-    ${index === item.submenu.length - 1 ? "rounded-b-xl" : ""}
-  `}
+                            className={`relative flex justify-between items-center px-4 py-4 mx-2 my-1
+  rounded-xl text-sm
+  transition-all duration-300
+  ${
+    isActive(sub.href)
+      ? "bg-[var(--color-gradient)] text-black"
+      : "text-white/90 hover:bg-white/30 hover:text-white"
+  }
+`}
                           >
-                            <span>{sub.name}</span>
+                           <span className="flex items-center gap-3">
+  {sub.icon && <sub.icon size={16} className="opacity-80" />}
+  {sub.name}
+</span>
+
 
                             {/* Chevron only if second-level submenu exists */}
                             {sub.submenu && (
@@ -129,21 +167,33 @@ export default function Navbar() {
 
                           {/* Second level submenu */}
                           {sub.submenu && (
-                            <div className="absolute left-full top-5 ml-1 w-64 bg-white shadow-xl border border-gray-200 
-                            rounded-xl opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible 
-                            transition-all duration-300">
+                            <div
+                              className="absolute left-full top-3 ml-2 w-64
+  bg-black/80 backdrop-blur-xxl
+  border border-white/30
+  rounded-2xl
+  opacity-0 invisible
+  group-hover/sub:opacity-100 group-hover/sub:visible
+  transition-all duration-300"
+                            >
                               {sub.submenu.map((child, childIndex) => (
                                 <Link
                                   to={child.href}
-                                  className={`block px-4 py-3 transition duration-200
-    ${
-      isActive(child.href)
-        ? "bg-[var(--color-gradient)] overflow-hidden rounded-xl text-black"
-        : "text-black hover:text-[var(--color-gradient)]"
-    }
-  `}
+                                  className={`block px-4 py-4 mx-2 my-1
+  rounded-lg text-xs
+  transition-all duration-300
+  ${
+    isActive(child.href)
+      ? "bg-[var(--color-gradient)] text-black"
+      : "text-white/90 hover:bg-white/30 hover:text-white"
+  }
+`}
                                 >
-                                  {child.name}
+                                  <span className="flex items-center gap-3">
+  {child.icon && <child.icon size={14} className="opacity-70" />}
+  {child.name}
+</span>
+
                                 </Link>
                               ))}
                             </div>

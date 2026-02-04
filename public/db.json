@@ -31,7 +31,7 @@
     {
       "id": 3,
       "slug": "led-digital-board",
-      "title": "LED / Digital Board",
+      "title": "LED Digital Board",
       "description": "Dynamic digital boards for promotions, menus, and announcements.",
       "subServices": [
         { "id": 301, "title": "ADA Signage", "desc": "High-resolution digital displays.", "image": "/images/serviceSignageCatagory/09.png", "size": "large" },
@@ -60,7 +60,7 @@
     {
       "id": 5,
       "slug": "window-graphics",
-      "title": "Window Graphics",
+      "title": "Window & Wall Graphics",
       "description": "Eye-catching window designs that communicate and convert.",
       "subServices": [
         { "id": 501, "title": "Office Window Graphics", "desc": "Attractive storefront window designs.", "image": "/images/serviceSignageCatagory/21.png", "size": "large" },

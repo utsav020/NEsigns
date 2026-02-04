@@ -40,7 +40,7 @@ const services = [
 const signageServices = [
   { title: "Exterior sign", icon: SquareDashed, path: "/exterior-sign" },
   { title: "Interior sign", icon: Sparkles, path: "/interior-sign" },
-  { title: "LED/Digital Board", icon: Bell, path: "/led-digital-board" },
+  { title: "LED Digital Board", icon: Bell, path: "/led-digital-board" },
   { title: "LED Neon Sign", icon: Sun, path: "/led-neon-sign" },
   { title: "Vehicle Graphics", icon: Car, path: "/vehicle-graphics" },
   { title: "Window & Wall Graphics", icon: LayoutGrid, path: "/window-wall-graphics" },
@@ -157,7 +157,7 @@ export default function ServicesSection() {
           <div className="items-center gap-6">
             <div className="h-px bg-white/15" />
             <h2 className="text-2xl sm:text-3xl lg:text-4xl py-10 sm:px-10 px-0">
-              Printing Products
+              Printing
             </h2>
           </div>
 

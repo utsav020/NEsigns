@@ -2,27 +2,9 @@
 @import './styles/base.css';
 @import './styles/animations.css';
 @import './styles/utilities.css';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@import './pages/homePages/home.css';
+@import './pages/ourworkPages/ourwork.css';
+@import './pages/servicesPages/services.css';
 
 
 
