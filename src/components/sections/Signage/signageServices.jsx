@@ -68,7 +68,7 @@ const signageServices = [
    PAGE
 ======================= */
 
-export default function signageServices() {
+export default function SignageServices() {
   return (
     <>
       {/* Hero */}
