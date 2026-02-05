@@ -163,9 +163,9 @@ function ServiceCard({ item, showViewMore, slug, large }) {
     }
     
     if (slug === "interior-sign") {
-      return "/categories/interior-sign/all-products";
+      return `/categories/${slug}/interior-sign?tab=ADA`;
     }
-
+    
     return `/categories/${slug}/${item.title
       .toLowerCase()
       .replace(/\s+/g, "-")}`;

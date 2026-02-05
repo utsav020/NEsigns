@@ -40,7 +40,7 @@ const ServiceSlider = () => {
   };
 
   return (
-    <div className="w-full overflow-hidden bg-black">
+    <div className="w-full overflow-hidden ">
       <style jsx>{`
         @keyframes slideUpOut {
           from { transform: translateY(0) rotate(var(--rotation)); opacity: 1; }
@@ -54,17 +54,17 @@ const ServiceSlider = () => {
         .slide-up-in { animation: slideUpIn 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards; }
       `}</style>
       
-      <div className="flex flex-col lg:flex-row container mx-auto px-6 min-h-screen">
+      <div className="flex flex-col md:flex-row container mx-auto px-6 md:h-200 sm:h-300 h-250">
         
         {/* Menu Section - Same layout, responsive text sizes */}
-        <nav className="w-full lg:w-[40%] flex flex-col justify-center
+        <nav className="w-full md:w-[40%] flex flex-col md:justify-center 
          py-12 lg:py-10 space-y-6 md:space-y-12 lg:space-y-10 z-20">
           {menuItems.map((item) => (
             <button
               key={item.id}
               onClick={() => setActiveCategory(item.id)}
               className={`
-                text-left py-2 text-4xl sm:text-5xl lg:text-6xl font-bold uppercase
+                text-left py-2 text-3xl sm:text-4xl lg:text-5xl font-bold uppercase
                 transition-all duration-300 ease-out
                 ${activeCategory === item.id 
                   ? 'text-white translate-x-4' 
@@ -88,8 +88,8 @@ const ServiceSlider = () => {
                   key={`${category}-${index}`}
                   className={`
                     absolute 
-                    w-[45vw] h-[45vw] max-w-[250px] max-h-[250px]
-                    sm:w-64 sm:h-64 lg:w-72 lg:h-80
+                    w-45 h-45
+                    sm:w-64 sm:h-64 lg:w-72 lg:h-69
                     ${activeCategory === category ? 'slide-up-in' : 'slide-up-out'}
                   `}
                   style={{
