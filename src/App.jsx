@@ -11,12 +11,12 @@ import Services from "./pages/servicesPages/Services";
 import OurWork from "./pages/ourworkPages/OurWork";
 import Signages from "./pages/servicesPages/Signages";
 import Footer from "./components/layout/Footer";
-import SignageCategories from "./components/sections/Signage/SignageCategories";
-import BuildingSignsCatagory from "./components/sections/Signage/BuildingSignsCatagory";
-import FreestandingSignsCategory from "./components/sections/Signage/FreestandingSignsCategory";
+import SignageCategories from "./components/sections/signage/SignageCategories";
+import BuildingSignsCatagory from "./components/sections/signage/BuildingSignsCatagory";
+import FreestandingSignsCategory from "./components/sections/signage/FreestandingSignsCategory";
 import ScrollToTop from "./components/ScrollToTop";
-import TemporarySigns from "./components/sections/Signage/TemporarySigns";
-import InteriorSigns from "./components/sections/Signage/InteriorSigns";
+import InteriorSigns from "./components/sections/signage/InteriorSigns";
+import TemporarySigns from "./components/sections/signage/TemporarySigns";
 
 
 gsap.registerPlugin(ScrollTrigger);

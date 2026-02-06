@@ -1,5 +1,5 @@
-import SignageMainSection from "../../components/sections/Signage/SignageMainSection";
-import SignageServices from "../../components/sections/Signage/SignageServices";
+import SignageMainSection from "../../components/sections/signage/SignageMainSection";
+import SignageServices from "../../components/sections/signage/SignageServices";
 
 export default function Signages() {
   return (
