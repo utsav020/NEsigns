@@ -5,8 +5,7 @@ export default function Signages() {
   return (
     <>
       <SignageMainSection />
-      <SignageServices/>
-    
+      <SignageServices />
     </>
   );
 }
