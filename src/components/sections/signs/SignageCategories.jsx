@@ -36,7 +36,7 @@ export default function SignageCategories() {
   if (!data) return <div className="bg-neutral-950 min-h-screen" />;
 
   const services = data.subServices || [];
-  const showViewMore = ["exterior-sign", "interior-sign", "temporary-signs"].includes(slug);
+  const showViewMore = ["exterior-sign", "interior-sign", "temporary-signs,"].includes(slug);
 
   return (
     <div className="bg-neutral-950 text-white min-h-screen">
@@ -154,22 +154,34 @@ export default function SignageCategories() {
 function ServiceCard({ item, showViewMore, slug, large }) {
   // Redirect logic: All interior signs go to one page, others are dynamic
   const getLink = () => {
-    if (item.title === "Freestanding Signs") {
-      return `/categories/${slug}/freestanding-signs?tab=monument`;
-    }
+  // Exterior logic
+  if (item.title === "Freestanding Signs") {
+    return `/categories/${slug}/freestanding-signs?tab=monument`;
+  }
 
-    if (item.title === "Directional Signs") {
-      return `/categories/${slug}/freestanding-signs?tab=wayfinding`;
-    }
-    
-    if (slug === "interior-sign") {
-      return `/categories/${slug}/interior-sign?tab=ADA`;
-    }
-    
-    return `/categories/${slug}/${item.title
-      .toLowerCase()
-      .replace(/\s+/g, "-")}`;
-  };
+  if (item.title === "Directional Signs") {
+    return `/categories/${slug}/freestanding-signs?tab=wayfinding`;
+  }
+
+  // ✅ INTERIOR SIGN (JSON-DRIVEN)
+  if (slug === "interior-sign") {
+    const tabMap = {
+      "ADA Signage": "ada",
+      "Custom Graphics": "graphics",
+      "Custom Graphics ": "graphics", // handles trailing space in JSON
+      "Corporate Branding Signs": "corporate",
+      "Menu Board": "menu",
+    };
+
+    return `/categories/${slug}/interior-sign?tab=${
+      tabMap[item.title] || "ada"
+    }`;
+  }
+
+  return `/categories/${slug}/${item.title
+    .toLowerCase()
+    .replace(/\s+/g, "-")}`;
+};
 
   return (
     <div

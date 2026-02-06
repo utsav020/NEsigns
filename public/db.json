@@ -21,7 +21,7 @@
       "description": "Clean, modern interior signage that enhances customer experience.",
       "subServices": [
         { "id": 201, "title": "ADA Signage", "desc": "Professional signage for reception areas.", "image": "/images/serviceSignageCatagory/05.png", "size": "large" },
-        { "id": 202, "title": "Custom Graphics ", "desc": "Custom Graphics for offices.", "image": "/images/serviceSignageCatagory/06.png", "size": "wide" },
+        { "id": 202, "title": "Custom Graphics", "desc": "Custom Graphics for offices.", "image": "/images/serviceSignageCatagory/06.png", "size": "wide" },
         { "id": 203, "title": "Corporate Branding Signs", "desc": "Brand-focused  graphics.", "image": "/images/serviceSignageCatagory/07.png", "size": "small" },
         { "id": 204, "title": "Menu Board", "desc": "Clean labeling for Menu Board for Restaurant & Café .", "image": "/images/serviceSignageCatagory/08.png", "size": "tall" },
         { "id": 205, "ctaType": "knowMore"}
@@ -35,7 +35,7 @@
       "description": "Dynamic digital boards for promotions, menus, and announcements.",
       "subServices": [
         { "id": 301, "title": "ADA Signage", "desc": "High-resolution digital displays.", "image": "/images/serviceSignageCatagory/09.png", "size": "large" },
-        { "id": 302, "title": "Custom Graphics ", "desc": "Brand-focused on Custom graphics.", "image": "/images/serviceSignageCatagory/10.png", "size": "wide" },
+        { "id": 302, "title": "Custom Graphics", "desc": "Brand-focused on Custom graphics.", "image": "/images/serviceSignageCatagory/10.png", "size": "wide" },
         { "id": 303, "title": "Corporate Branding Signs", "desc": "Professional signage for reception areas.", "image": "/images/serviceSignageCatagory/11.png", "size": "small" },
         { "id": 304, "title": "Temporary & Portable Sign", "desc": "Short-term promotional window stickers.", "image": "/images/serviceSignageCatagory/12.png", "size": "tall" },
         { "id": 305, "ctaType": "contact"}

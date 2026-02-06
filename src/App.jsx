@@ -15,8 +15,10 @@ import SignageCategories from "./components/sections/signs/SignageCategories";
 import BuildingSignsCatagory from "./components/sections/signs/BuildingSignsCatagory";
 import FreestandingSignsCategory from "./components/sections/signs/FreestandingSignsCategory";
 import ScrollToTop from "./components/ScrollToTop";
-import InteriorSigns from "./components/sections/signs/InteriorSigns";
 import TemporarySigns from "./components/sections/signs/TemporarySigns";
+import InteriorSignscatagory from "./components/sections/signs/InteriorSignscatagory";
+import WebDesigning from "./pages/webdesigningPages/WebDesigning";
+import SEO from "./pages/seoPages/SEO";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -83,8 +85,12 @@ export default function App() {
             />
             <Route
               path="/categories/:slug/interior-sign"
-              element={<InteriorSigns />}
+              element={<InteriorSignscatagory/>}
             />
+
+            <Route path="/services/web-design" element={<WebDesigning />} />
+            <Route path="/services/seo" element={<SEO />} />
+
 
             <Route path="/our_work" element={<OurWork />} />
             <Route path="/blogs" element={<Blog />} />

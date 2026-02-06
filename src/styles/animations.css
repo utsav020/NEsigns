@@ -76,16 +76,16 @@
 @keyframes wave-expand {
   0% {
     transform: scale(0.6);
-    opacity: 0.9;
+    opacity: 100;
   }
 
   70% {
-    opacity: 0.4;
+    opacity: 50;
   }
 
   100% {
     transform: scale(1.4);
-    opacity: 0.2;
+    opacity: 10;
   }
 }
 
