@@ -1,11 +1,11 @@
-import ServiceSlider from '../../components/sections/services/ServiceSlider'
-import ServicesProduct from '../../components/sections/services/ServicesProduct'
+import OtherServices from '../../components/sections/services/OtherServices'
+import ServicesHeroSection from '../../components/sections/services/ServicesHeroSection'
 
 export default function Services() {
   return (
     <>
-      <ServiceSlider/>
-      <ServicesProduct/>
+      <ServicesHeroSection/>
+      <OtherServices/>
     </>
   )
 }

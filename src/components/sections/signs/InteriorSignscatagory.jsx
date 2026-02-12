@@ -22,19 +22,71 @@ const InteriorSignscatagory = () => {
      Categories
   ---------------------------------- */
   const categories = [
-    { id: "ada", name: "ADA Signage", image: "https://images.unsplash.com/photo-1607827448299-a099b845ff0f?w=200&h=150&fit=crop" },
-    { id: "dimensional", name: "Dimensional Letters", image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=200&h=150&fit=crop" },
-    { id: "directional", name: "Directional Signs", image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=200&h=150&fit=crop" },
-    { id: "graphics", name: "Custom Graphics & Decals", image: "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=200&h=150&fit=crop" },
-    { id: "canvas", name: "Custom Canvas Prints", image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=200&h=150&fit=crop" },
-    { id: "tradeshow", name: "Trade Show Signage", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=200&h=150&fit=crop" },
-    { id: "corporate", name: "Corporate Branding Signs", image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=200&h=150&fit=crop" },
-    { id: "banners", name: "Banners and Posters", image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=200&h=150&fit=crop" },
-    { id: "custom", name: "Any Custom Interior Signs", image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=200&h=150&fit=crop" },
-    { id: "menu", name: "Menu Boards", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=200&h=150&fit=crop" },
-    { id: "backdrop", name: "Step and Repeat Backdrop", image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=200&h=150&fit=crop" },
-    { id: "banner-stands", name: "Banner Stands", image: "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=200&h=150&fit=crop" },
-    { id: "acrylic", name: "Acrylic Signs", image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=200&h=150&fit=crop" },
+    {
+      id: "ada",
+      name: "ADA Signage",
+      image: "/images/interiorsigns/ADA_03.png",
+    },
+    {
+      id: "dimensional",
+      name: "Dimensional Letters",
+      image: "/images/interiorsigns/Dimension_5.png",
+    },
+    {
+      id: "directional",
+      name: "Directional Signs",
+      image: "/images/interiorsigns/Directional_5.png",
+    },
+    {
+      id: "graphics",
+      name: "Custom Graphics & Decals",
+      image: "/images/interiorsigns/Graphics_3.png",
+    },
+    {
+      id: "canvas",
+      name: "Custom Canvas Prints",
+      image: "/images/interiorsigns/Custom_Canvas_8.png",
+    },
+    {
+      id: "tradeshow",
+      name: "Trade Show Signage",
+      image: "/images/interiorsigns/TradShow_2.jpg",
+    },
+    {
+      id: "corporate",
+      name: "Corporate Branding Signs",
+      image: "/images/interiorsigns/Corpo_Bran_8.png",
+    },
+    {
+      id: "banners",
+      name: "Banners and Posters",
+      image: "/images/interiorsigns/Banner_1.png",
+    },
+    {
+      id: "custom",
+      name: "Any Custom Interior Signs",
+      image: "/images/interiorsigns/Any_Custom_1.png",
+    },
+    {
+      id: "menu",
+      name: "Menu Boards",
+      image: "/images/interiorsigns/ManuBoard_1.png",
+    },
+    {
+      id: "backdrop",
+      name: "Step and Repeat Backdrop",
+      image: "/images/interiorsigns/Backdrop_2.png",
+    },
+    {
+      id: "banner-stands",
+      name: "Banner Stands",
+      image: "/images/interiorsigns/Stand_7.png",
+    },
+    {
+      id: "acrylic",
+      name: "Acrylic Signs",
+      image: "/images/interiorsigns/Acrylic_1.png",
+    },
   ];
 
   /* ----------------------------------
@@ -42,55 +94,142 @@ const InteriorSignscatagory = () => {
   ---------------------------------- */
   const galleryImages = {
     ada: [
-      "https://images.unsplash.com/photo-1607827448299-a099b845ff0f?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=400&fit=crop",
+      "/images/interiorsigns/ADA_01.png",
+      "/images/interiorsigns/ADA_02.png",
+      "/images/interiorsigns/ADA_03.png",
+      "/images/interiorsigns/ADA_04.png",
+      "/images/interiorsigns/ADA_05.png",
+      "/images/interiorsigns/ADA_06.png",
+      "/images/interiorsigns/ADA_07.png",
+      "/images/interiorsigns/ADA_08.png",
+      "/images/interiorsigns/ADA_09.png",
     ],
     dimensional: [
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=400&h=400&fit=crop",
+      "/images/interiorsigns/Dimension_1.png",
+      "/images/interiorsigns/Dimension_2.png",
+      "/images/interiorsigns/Dimension_3.png",
+      "/images/interiorsigns/Dimension_4.png",
+      "/images/interiorsigns/Dimension_5.png",
+      "/images/interiorsigns/Dimension_6.png",
+      "/images/interiorsigns/Dimension_7.png",
+      "/images/interiorsigns/Dimension_8.png",
     ],
     directional: [
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=400&h=400&fit=crop",
+      "/images/interiorsigns/Directional_1.png",
+      "/images/interiorsigns/Directional_2.png",
+      "/images/interiorsigns/Directional_3.png",
+      "/images/interiorsigns/Directional_4.png",
+      "/images/interiorsigns/Directional_5.png",
+      "/images/interiorsigns/Directional_6.png",
+      "/images/interiorsigns/Directional_7.png",
+      "/images/interiorsigns/Directional_8.png",
     ],
     graphics: [
-      "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=400&h=400&fit=crop",
+      "/images/interiorsigns/Graphics_1.png",
+      "/images/interiorsigns/Graphics_2.png",
+      "/images/interiorsigns/Graphics_3.png",
+      "/images/interiorsigns/Graphics_4.png",
+      "/images/interiorsigns/Graphics_5.png",
+      "/images/interiorsigns/Graphics_6.png",
+      "/images/interiorsigns/Graphics_7.png",
+      "/images/interiorsigns/Graphics_8.png",
+      "/images/interiorsigns/Graphics_9.png",
     ],
     canvas: [
-      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&h=400&fit=crop",
+      "/images/interiorsigns/Custom_Canvas_1.png",
+      "/images/interiorsigns/Custom_Canvas_2.png",
+      "/images/interiorsigns/Custom_Canvas_3.png",
+      "/images/interiorsigns/Custom_Canvas_4.png",
+      "/images/interiorsigns/Custom_Canvas_5.png",
+      "/images/interiorsigns/Custom_Canvas_6.png",
+      "/images/interiorsigns/Custom_Canvas_7.png",
+      "/images/interiorsigns/Custom_Canvas_8.png",
     ],
     tradeshow: [
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=400&fit=crop",
+      "/images/interiorsigns/TradShow_1.jpg",
+      "/images/interiorsigns/TradShow_2.jpg",
+      "/images/interiorsigns/TradShow_3.jpg",
+      "/images/interiorsigns/TradShow_4.jpg",
+      "/images/interiorsigns/TradShow_5.jpg",
+      "/images/interiorsigns/TradShow_6.jpg",
+      "/images/interiorsigns/TradShow_7.jpg",
     ],
     corporate: [
-      "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=400&h=400&fit=crop",
+      "/images/interiorsigns/Corpo_Bran_4.png",
+      "/images/interiorsigns/Corpo_Bran_1.png",
+      "/images/interiorsigns/Corpo_Bran_2.png",
+      "/images/interiorsigns/Corpo_Bran_3.png",
+      "/images/interiorsigns/Corpo_Bran_6.png",
+      "/images/interiorsigns/Corpo_Bran_7.png",
+      "/images/interiorsigns/Corpo_Bran_8.png",
+      "/images/interiorsigns/Corpo_Bran_9.png",
+      "/images/interiorsigns/Corpo_Bran_5.png",
     ],
     banners: [
-      "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=400&fit=crop",
+      "/images/interiorsigns/Banner_1.png",
+      "/images/interiorsigns/Banner_2.png",
+      "/images/interiorsigns/Banner_3.png",
+      "/images/interiorsigns/Banner_4.png",
+      "/images/interiorsigns/Banner_5.png",
+      "/images/interiorsigns/Banner_6.png",
+      "/images/interiorsigns/Banner_7.png",
+      "/images/interiorsigns/Banner_8.png",
     ],
     custom: [
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=400&h=400&fit=crop",
+      "/images/interiorsigns/Any_Custom_1.png",
+      "/images/interiorsigns/Any_Custom_2.png",
+      "/images/interiorsigns/Any_Custom_3.png",
+      "/images/interiorsigns/Any_Custom_4.png",
+      "/images/interiorsigns/Any_Custom_5.png",
+      "/images/interiorsigns/Any_Custom_6.png",
+      "/images/interiorsigns/Any_Custom_7.png",
     ],
     menu: [
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=400&fit=crop",
+      "/images/interiorsigns/ManuBoard_1.png",
+      "/images/interiorsigns/ManuBoard_2.png",
+      "/images/interiorsigns/ManuBoard_3.png",
+      "/images/interiorsigns/ManuBoard_4.png",
+      "/images/interiorsigns/ManuBoard_5.png",
+      "/images/interiorsigns/ManuBoard_6.png",
+      "/images/interiorsigns/ManuBoard_7.png",
+      "/images/interiorsigns/ManuBoard_8.png",
     ],
     backdrop: [
-      "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=400&h=400&fit=crop",
+      "/images/interiorsigns/Backdrop_1.png",
+      "/images/interiorsigns/Backdrop_2.png",
+      "/images/interiorsigns/Backdrop_3.png",
+      "/images/interiorsigns/Backdrop_4.png",
+      "/images/interiorsigns/Backdrop_5.png",
+      "/images/interiorsigns/Backdrop_6.png",
+      "/images/interiorsigns/Backdrop_7.png",
+      "/images/interiorsigns/Backdrop_8.png",
     ],
     "banner-stands": [
-      "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=400&h=400&fit=crop",
+      "/images/interiorsigns/Stand_1.png",
+      "/images/interiorsigns/Stand_2.png",
+      "/images/interiorsigns/Stand_3.png",
+      "/images/interiorsigns/Stand_4.png",
+      "/images/interiorsigns/Stand_5.png",
+      "/images/interiorsigns/Stand_6.png",
+      "/images/interiorsigns/Stand_7.png",
+      "/images/interiorsigns/Stand_8.png",
     ],
     acrylic: [
-      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=400&fit=crop",
+      "/images/interiorsigns/Acrylic_1.png",
+      "/images/interiorsigns/Acrylic_2.png",
+      "/images/interiorsigns/Acrylic_3.png",
+      "/images/interiorsigns/Acrylic_4.png",
+      "/images/interiorsigns/Acrylic_5.png",
+      "/images/interiorsigns/Acrylic_6.png",
+      "/images/interiorsigns/Acrylic_7.png",
+      "/images/interiorsigns/Acrylic_8.png",
     ],
   };
 
   /* ----------------------------------
      SAFETY FALLBACK (prevents crashes)
   ---------------------------------- */
-  const safeCategory =
-    galleryImages[activeCategory] ? activeCategory : "ada";
+  const safeCategory = galleryImages[activeCategory] ? activeCategory : "ada";
 
   return (
     <div className="p-6">
@@ -135,9 +274,7 @@ const InteriorSignscatagory = () => {
                 alt={category.name}
                 className="w-32 h-20 object-cover"
               />
-              <span className="px-5 py-4 font-semibold">
-                {category.name}
-              </span>
+              <span className="px-5 py-4 font-semibold">{category.name}</span>
             </button>
           ))}
         </div>
@@ -149,11 +286,7 @@ const InteriorSignscatagory = () => {
               key={index}
               className="aspect-square rounded-xl overflow-hidden hover:scale-105 transition"
             >
-              <img
-                src={image}
-                alt=""
-                className="w-full h-full object-cover"
-              />
+              <img src={image} alt="" className="w-full h-full object-cover" />
             </div>
           ))}
         </div>

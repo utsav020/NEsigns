@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowDownRight } from "lucide-react";
 import { motion} from "framer-motion";
 
 
@@ -120,18 +120,18 @@ export default function ServicesShowcase() {
 
   return (
     <>
-      <section className="relative bg-black text-white py-12 sm:py-16 lg:py-24 overflow-hidden">
-        <div className="relative containers px-4 sm:px-6 lg:px-8">
+      <section className="relative  py-12 sm:py-16 lg:py-24 overflow-hidden">
+        <div className="relative container px-4 sm:px-6 lg:px-8">
           {/* Header */}
-          <div className="mb-12 sm:mb-16 lg:mb-20">
-            <div className="flex items-center gap-3 mb-6 sm:mb-8">
-              <span className="text-amber-500 text-sm sm:text-base tracking-wider">
+          <div className="mb-12 sm:mb-16 lg:mb-20 ">
+            <div className="flex items-center gap-3 mb-6 sm:mb-8 text-[var(--color-gradient)]">
+              <span className=" text-sm sm:text-base tracking-wider">
                 VIEW OUR WORK
               </span>
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500" />
+              <ArrowDownRight className="w-4 h-4 sm:w-5 sm:h-5 arrow-bounce" />
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 sm:mb-8 max-w-5xl">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 sm:mb-8 max-w-6xl">
               Get your Printing Product in Best Price.
             </h2>
 
@@ -192,9 +192,6 @@ export default function ServicesShowcase() {
                     className="absolute inset-[2px] rounded-full bg-[var(--color-graybg)]
     flex flex-col items-center justify-center p-6 sm:p-8"
                   >
-                    <span className="text-amber-500/60 text-xs sm:text-sm mb-2 font-light">
-                      Service {service.id}
-                    </span>
                     <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold mb-3">
                       {service.title}
                     </h3>

@@ -1,24 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import {
-  ArrowLeft,
-  Building2,
-  BarChart3,
-  Navigation,
-  Truck,
-} from "lucide-react";
-
-const iconMap = {
-  "Building Signs": <Building2 className="w-5 h-5" />,
-  "Freestanding Signs": <BarChart3 className="w-5 h-5" />,
-  "Directional Signs": <Navigation className="w-5 h-5" />,
-  "Temporary Signs": <Truck className="w-5 h-5" />,
-};
-
-// Reusable Grain Overlay
-const GrainOverlay = () => (
-  <div className="absolute inset-0 opacity-[0.15] mix-blend-overlay pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-);
+import { ArrowLeft } from "lucide-react";
 
 export default function SignageCategories() {
   const { slug } = useParams();
@@ -33,115 +15,56 @@ export default function SignageCategories() {
       });
   }, [slug]);
 
-  if (!data) return <div className="bg-neutral-950 min-h-screen" />;
+  if (!data) return <div className="" />;
 
   const services = data.subServices || [];
-  const showViewMore = ["exterior-sign", "interior-sign", "temporary-signs,"].includes(slug);
+  const showViewMore = ["exterior-sign", "interior-sign", "temporary-signs"].includes(slug);
 
   return (
-    <div className="bg-neutral-950 text-white min-h-screen">
+    <div className="">
       {/* Header */}
-      <header className="px-4 sm:px-6 lg:px-8 py-6">
+      <header className=" lg:px-20 py-8">
         <Link
           to="/services/signage"
           className="inline-flex items-center text-neutral-400 hover:text-white transition"
         >
-          <ArrowLeft className="w-8 h-8" />
+          <ArrowLeft className="w-6 h-6" />
         </Link>
       </header>
 
       {/* Hero Section */}
-      <section className=" px-6 lg:px-20">
+      <section className="px-6 lg:px-20 pb-12">
         <div className="container">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-5 h-5 rounded-full border-2 border-neutral-600 flex items-center justify-center">
-              <div className="w-2 h-2 rounded-full bg-neutral-600" />
+          <div className="flex items-center gap-2 mb-6">
+            <div className="w-4 h-4 rounded-full border border-white flex items-center justify-center">
+              <div className="w-1.5 h-1.5 rounded-full bg-neutral-400" />
             </div>
-            <span className="text-sm text-neutral-400 capitalize">
+            <span className="text-xs text-neutral-400 uppercase tracking-widest">
               {data.slug.replace("-", " ")}
             </span>
           </div>
-          <h1 className="text-2xl lg:text-6xl font-bold mb-4">{data.title}</h1>
-          <p className="text-lg text-neutral-400 max-w-2xl">
+          <h1 className="text-4xl lg:text-5xl font-bold mb-4 max-w-4xl leading-tight">
+            {data.title}
+          </h1>
+          <p className="text-base text-neutral-400 max-w-2xl">
             {data.description}
           </p>
         </div>
       </section>
 
-      {/* Grid Section */}
-      <section className="pb-24 px-6 lg:px-20">
-        <div className="container mx-auto">
-          {/* Desktop Layout: 2 Columns aligned at top and bottom */}
-          <div className="hidden md:grid grid-cols-2 gap-8 items-stretch">
-            {/* Left Column */}
-            <div className="flex flex-col gap-8">
-              {services[0] && (
-                <div className="flex-grow">
-                  <ServiceCard
-                    item={services[0]}
-                    showViewMore={showViewMore}
-                    slug={slug}
-                    large
-                  />
-                </div>
-              )}
-              <InfoCard />
-              {services[2] && (
-                <ServiceCard
-                  item={services[2]}
-                  showViewMore={showViewMore}
-                  slug={slug}
-                />
-              )}
-            </div>
-
-            {/* Right Column */}
-            <div className="flex flex-col gap-8">
-              <InfoCard />
-              {services[1] && (
-                <ServiceCard
-                  item={services[1]}
-                  showViewMore={showViewMore}
-                  slug={slug}
-                />
-              )}
-              {services[3] && (
-                <div className="flex-grow">
-                  <ServiceCard
-                    item={services[3]}
-                    showViewMore={showViewMore}
-                    slug={slug}
-                    large
-                  />
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Mobile Layout */}
-          <div className="md:hidden space-y-6">
-            {services.map((item) => (
+      {/* Cards Grid */}
+      <section className="px-6 lg:px-20 pb-20">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {services.filter(item => item && item.title).map((item, index) => (
               <ServiceCard
-                key={item.id}
+                key={item.id || index}
                 item={item}
                 showViewMore={showViewMore}
                 slug={slug}
+                index={index}
               />
             ))}
-            <InfoCard />
-          </div>
-
-          {/* Bottom CTA */}
-          <div className="mt-20 flex justify-center">
-            <Link
-              to={
-                showViewMore ? `/categories/${slug}/building-signs` : "/contact"
-              }
-              className="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-black font-semibold text-lg shadow-lg hover:from-amber-400 hover:to-orange-400 active:scale-95 transition-all duration-300"
-            >
-              {showViewMore ? "Know More" : "Contact Us"}
-              <ArrowLeft className="rotate-180 w-5 h-5" />
-            </Link>
           </div>
         </div>
       </section>
@@ -149,95 +72,106 @@ export default function SignageCategories() {
   );
 }
 
-/* ---------- Sub-Components ---------- */
+/* ---------- Service Card Component ---------- */
 
-function ServiceCard({ item, showViewMore, slug, large }) {
+function ServiceCard({ item, showViewMore, slug, index }) {
+  // Gradient colors for each card - using exact linear gradients
+  const gradients = [
+    "linear-gradient(180deg, #852170 0%, rgba(137, 57, 96, 0.45) 100%)",     // Building Signs
+    "linear-gradient(180deg, #EDBC5A 0%, rgba(137, 57, 96, 0.45) 100%)",     // Freestanding Signs
+    "linear-gradient(180deg, #27A3D5 0%, rgba(137, 57, 96, 0.45) 100%)",     // Directional Signs
+    "linear-gradient(180deg, #ED90CF 0%, rgba(137, 57, 96, 0.45) 100%)",     // Temporary Signs
+  ];
+
   // Redirect logic: All interior signs go to one page, others are dynamic
   const getLink = () => {
-  // Exterior logic
-  if (item.title === "Freestanding Signs") {
-    return `/categories/${slug}/freestanding-signs?tab=monument`;
-  }
+    // Safety check
+    if (!item || !item.title) {
+      return `/categories/${slug}`;
+    }
 
-  if (item.title === "Directional Signs") {
-    return `/categories/${slug}/freestanding-signs?tab=wayfinding`;
-  }
+    // Exterior logic
+    if (item.title === "Freestanding Signs") {
+      return `/categories/${slug}/freestanding-signs?tab=monument`;
+    }
 
-  // ✅ INTERIOR SIGN (JSON-DRIVEN)
-  if (slug === "interior-sign") {
-    const tabMap = {
-      "ADA Signage": "ada",
-      "Custom Graphics": "graphics",
-      "Custom Graphics ": "graphics", // handles trailing space in JSON
-      "Corporate Branding Signs": "corporate",
-      "Menu Board": "menu",
-    };
+    if (item.title === "Directional Signs") {
+      return `/categories/${slug}/freestanding-signs?tab=wayfinding`;
+    }
 
-    return `/categories/${slug}/interior-sign?tab=${
-      tabMap[item.title] || "ada"
-    }`;
-  }
+    // Interior sign logic (JSON-driven)
+    if (slug === "interior-sign") {
+      const tabMap = {
+        "ADA Signage": "ada",
+        "Custom Graphics": "graphics",
+        "Custom Graphics ": "graphics", // handles trailing space in JSON
+        "Corporate Branding Signs": "corporate",
+        "Menu Board": "menu",
+      };
 
-  return `/categories/${slug}/${item.title
-    .toLowerCase()
-    .replace(/\s+/g, "-")}`;
-};
+      return `/categories/${slug}/interior-sign?tab=${
+        tabMap[item.title] || "ada"
+      }`;
+    }
+
+    return `/categories/${slug}/${item.title
+      .toLowerCase()
+      .replace(/\s+/g, "-")}`;
+  };
 
   return (
-    <div
-      className={`relative rounded-[2.5rem] border border-neutral-800 bg-neutral-900/40 overflow-hidden group flex flex-col transition-all duration-500 hover:border-neutral-700 ${large ? "h-full" : ""}`}
-    >
-      <GrainOverlay />
+    <div className="group relative overflow-hidden border border-white/70">
+      {/* Background Image */}
+      {item?.image && (
+        <img
+          src={item.image}
+          alt={item.title || 'Sign'}
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      )}
 
-      <div className="relative p-8 lg:p-10 flex flex-col h-full z-10">
-        <div className="flex items-start gap-4 mb-4">
-          <div className="text-neutral-400 mt-1">{iconMap[item.title]}</div>
-          <div>
-            <h3 className="text-xl font-semibold text-white">{item.title}</h3>
-            <p className="text-sm text-neutral-500 mt-2 leading-relaxed">
-              {item.desc}
-            </p>
-          </div>
+      {/* Gradient Overlay - Fades out on hover */}
+      <div 
+        className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0"
+        style={{
+          background: gradients[index % 4]
+        }}
+      />
+
+      {/* Content Overlay */}
+      <div className="relative h-full flex flex-col justify-between min-h-[400px]">
+        {/* Top Section - Title & Description */}
+        <div className="p-6 pb-0">
+          <h3 className="text-2xl font-bold text-white mb-3">{item?.title || 'Sign Type'}</h3>
+          {/* Description - Hides on hover */}
+          <p className="text-sm text-white/90 leading-relaxed max-w-[280px] transition-opacity duration-300 group-hover:opacity-0">
+            {item?.desc || ''}
+          </p>
         </div>
 
-        {item.image && (
-          <div
-            className={`mt-auto rounded-3xl overflow-hidden relative border border-neutral-800/50 ${large ? "flex-grow min-h-[300px]" : "aspect-[16/10]"}`}
-          >
-            <img
-              src={item.image}
-              alt={item.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
+        {/* Bottom Section - Glassmorphism Controls */}
+        <div 
+          className="w-full border-t border-white/10"
+          style={{
+            background: '#000000CC',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+          }}
+        >
+          <div className="flex items-center justify-between p-3">
+            <span className="text-xs text-white/80">View all Signs</span>
+            
             {showViewMore && (
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <Link
-                  to={getLink()}
-                  className="bg-amber-500 text-black px-6 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-all"
-                >
-                  View More <ArrowLeft className="w-4 h-4 rotate-180" />
-                </Link>
-              </div>
+              <Link
+                to={getLink()}
+                className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/40 text-white text-sm font-medium hover:bg-white/10 hover:border-white/60 transition-all duration-300"
+              >
+                View More
+                <ArrowLeft className="w-4 h-4 rotate-180" />
+              </Link>
             )}
           </div>
-        )}
-      </div>
-    </div>
-  );
-}
-
-function InfoCard() {
-  return (
-    <div className="relative rounded-[2.5rem] p-8 lg:p-10 border border-neutral-800 bg-neutral-900/60 overflow-hidden shadow-inner">
-      <GrainOverlay />
-      <div className="relative z-10">
-        <h3 className="text-sm font-bold text-white mb-3 uppercase tracking-widest opacity-90">
-          Your One-Stop Shop
-        </h3>
-        <p className="text-neutral-400 text-sm leading-relaxed">
-          High-quality signs, competitive prices, and quick turnaround all in
-          one place.
-        </p>
+        </div>
       </div>
     </div>
   );
