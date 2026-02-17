@@ -1,6 +1,6 @@
-import { ArrowDownRight } from 'lucide-react';
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { ArrowDownRight } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 export default function AboutCompany() {
   const sectionRef = useRef(null);
@@ -13,9 +13,9 @@ export default function AboutCompany() {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
+        delayChildren: 0.1,
+      },
+    },
   };
 
   const labelVariants = {
@@ -25,9 +25,9 @@ export default function AboutCompany() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.43, 0.13, 0.23, 0.96]
-      }
-    }
+        ease: [0.43, 0.13, 0.23, 0.96],
+      },
+    },
   };
 
   const headingVariants = {
@@ -37,9 +37,9 @@ export default function AboutCompany() {
       y: 0,
       transition: {
         duration: 1,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
   };
 
   const textVariants = {
@@ -50,9 +50,9 @@ export default function AboutCompany() {
       transition: {
         duration: 0.8,
         delay: 0.2,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
   };
 
   const decorLineVariants = {
@@ -63,9 +63,9 @@ export default function AboutCompany() {
       rotate: 0,
       transition: {
         duration: 1.2,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const waveVariants = {
@@ -76,9 +76,9 @@ export default function AboutCompany() {
       scale: 1,
       transition: {
         duration: 1.5,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
   };
 
   const arrowVariants = {
@@ -88,26 +88,23 @@ export default function AboutCompany() {
       scale: 1.2,
       transition: {
         duration: 0.3,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative flex items-center"
-    >
-       {/* Golden Background left side  Patch */}
-<div
-  className="absolute md:w-[508px] md:h-[508px] w-100 h-100
+    <section ref={sectionRef} className="relative flex items-center">
+      {/* Golden Background left side  Patch */}
+      <div
+        className="absolute md:w-[508px] md:h-[508px] w-100 h-100
              top-[0] left-[0]
              bg-[var(--color-patch)]
              opacity-100
              blur-[300px]
              overflow-visible
              pointer-events-none"
-/>
+      />
       {/* LEFT DECORATIVE LINE */}
       <motion.div
         className="absolute left-4 sm:left-8 md:left-12 lg:left-16 top-1/2 -translate-y-1/2 
@@ -116,12 +113,16 @@ export default function AboutCompany() {
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
-        <img src="/images/Hero/DecorLine.png" alt="" className="w-full h-auto" />
+        <img
+          src="/images/Hero/DecorLine.png"
+          alt=""
+          className="w-full h-auto"
+        />
       </motion.div>
 
       {/* RIGHT CONTOUR GRAPHIC */}
       <motion.div
-        className="absolute right-10 wave-container 
+        className="absolute right-20 wave-container 
         opacity-50"
         variants={waveVariants}
         initial="hidden"
@@ -130,14 +131,14 @@ export default function AboutCompany() {
         <motion.img
           src="/images/Wave.png"
           alt=""
-          className="wave-animation w-100 h-100 overflow-visible"
+          className="wave-animation w-100 h-100"
           animate={{
             y: [0, -10, 0],
           }}
           transition={{
             duration: 4,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         />
       </motion.div>
@@ -159,8 +160,12 @@ export default function AboutCompany() {
           >
             <motion.span
               className="text-xs sm:text-sm md:text-[15px] tracking-[0.2em] sm:tracking-[0.3em] text-[var(--color-gradient)] uppercase"
-              initial={{ opacity: 0, letterSpacing: '0.1em' }}
-              animate={isInView ? { opacity: 1, letterSpacing: '0.3em' } : { opacity: 0, letterSpacing: '0.1em' }}
+              initial={{ opacity: 0, letterSpacing: "0.1em" }}
+              animate={
+                isInView
+                  ? { opacity: 1, letterSpacing: "0.3em" }
+                  : { opacity: 0, letterSpacing: "0.1em" }
+              }
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               ABOUT COMPANY
@@ -182,7 +187,7 @@ export default function AboutCompany() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              style={{ display: 'inline-block' }}
+              style={{ display: "inline-block" }}
             >
               Customized Printing to
             </motion.span>
@@ -191,22 +196,25 @@ export default function AboutCompany() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              style={{ display: 'inline-block' }}
+              style={{ display: "inline-block" }}
             >
-              Achieve Your{" "}
+              Achieve Your
             </motion.span>
+
             <motion.span
-              className="text-[var(--color-primary)]"
+              className="text-[var(--color-primary)] ml-2"
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+              animate={
+                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }
+              }
               transition={{
                 delay: 0.7,
                 duration: 0.8,
                 type: "spring",
                 stiffness: 100,
-                damping: 15
+                damping: 15,
               }}
-              style={{ display: 'inline-block' }}
+              style={{ display: "inline-block" }}
             >
               Business Goals
             </motion.span>
@@ -222,7 +230,11 @@ export default function AboutCompany() {
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ delay: 0.9, duration: 1 }}
             >
-              We create tailored printing solutions designed to make your brand stand out and your message clear. From eye-catching designs to premium materials, every print is crafted to support your marketing goals, engage your audience, and drive real results for your business.
+              We create tailored printing solutions designed to make your brand
+              stand out and your message clear. From eye-catching designs to
+              premium materials, every print is crafted to support your
+              marketing goals, engage your audience, and drive real results for
+              your business.
             </motion.span>
           </motion.p>
         </div>

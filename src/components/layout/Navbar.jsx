@@ -115,13 +115,9 @@ export default function Navbar() {
 
   return (
     <>
-      <nav
-        className="sticky top-0 left-0 right-0 z-50 
-  bg-[#00000033] backdrop-blur-xs 
-  border-b border-white/20 h-25"
-      >
+      <nav className="sticky top-0 left-0 right-0 z-50 backdrop-blur-xs border-b border-white/20 h-25">
         <div className="containers">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex xl:justify-between justify-between items-center h-20">
             {/* Logo */}
             <div className="flex-shrink-0">
               <img
@@ -131,19 +127,19 @@ export default function Navbar() {
               />
             </div>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation — visible only on xl (1280px+) */}
             <div className="hidden xl:flex items-center space-x-8">
               {navItems.map((item) => (
                 <div key={item.name} className="relative group py-6">
                   <Link
                     to={item.href}
-                    className={`relative text-sm font-medium tracking-wide transition-colors duration-300
-    ${
-      isActive(item.href, item)
-        ? "text-[var(--color-gradient)]"
-        : "text-white hover:text-[var(--color-gradient)]"
-    }
-  `}
+                    className={`relative xl:text-[18px] md:text-sm tracking-wide transition-colors duration-300
+                      ${
+                        isActive(item.href, item)
+                          ? "text-[var(--color-gradient)]"
+                          : "text-white hover:text-[var(--color-gradient)]"
+                      }
+                    `}
                   >
                     {item.name}
                   </Link>
@@ -152,27 +148,27 @@ export default function Navbar() {
                   {item.submenu && (
                     <div
                       className="absolute left-0 top-full mt-2 w-64
-  bg-black/80 backdrop-blur-xxl
-  border border-white/30
-  rounded-2xl
-  shadow-[0_20px_60px_rgba(0,0,0,0.6)]
-  opacity-0 invisible
-  group-hover:opacity-100 group-hover:visible
-  transition-all duration-300"
+                        bg-black/80 backdrop-blur-xxl
+                        border border-white/30
+                        rounded-2xl
+                        shadow-[0_20px_60px_rgba(0,0,0,0.6)]
+                        opacity-0 invisible
+                        group-hover:opacity-100 group-hover:visible
+                        transition-all duration-300"
                     >
-                      {item.submenu.map((sub, index) => (
+                      {item.submenu.map((sub) => (
                         <div key={sub.name} className="relative group/sub">
                           <Link
                             to={sub.href}
                             className={`relative flex justify-between items-center px-4 py-4 mx-2 my-1
-  rounded-xl text-sm
-  transition-all duration-300
-  ${
-    isActive(sub.href)
-      ? "bg-[var(--color-gradient)] text-black"
-      : "text-white/90 hover:bg-white/30 hover:text-white"
-  }
-`}
+                              rounded-xl text-sm
+                              transition-all duration-300
+                              ${
+                                isActive(sub.href)
+                                  ? "bg-[var(--color-gradient)] text-black"
+                                  : "text-white/90 hover:bg-white/30 hover:text-white"
+                              }
+                            `}
                           >
                             <span className="flex items-center gap-3">
                               {sub.icon && (
@@ -181,7 +177,6 @@ export default function Navbar() {
                               {sub.name}
                             </span>
 
-                            {/* Chevron only if second-level submenu exists */}
                             {sub.submenu && (
                               <ChevronRight
                                 size={16}
@@ -194,25 +189,26 @@ export default function Navbar() {
                           {sub.submenu && (
                             <div
                               className="absolute left-full top-3 ml-2 w-64
-  bg-black/80 backdrop-blur-xxl
-  border border-white/30
-  rounded-2xl
-  opacity-0 invisible
-  group-hover/sub:opacity-100 group-hover/sub:visible
-  transition-all duration-300"
+                                bg-black/80 backdrop-blur-xxl
+                                border border-white/30
+                                rounded-2xl
+                                opacity-0 invisible
+                                group-hover/sub:opacity-100 group-hover/sub:visible
+                                transition-all duration-300"
                             >
-                              {sub.submenu.map((child, childIndex) => (
+                              {sub.submenu.map((child) => (
                                 <Link
+                                  key={child.name}
                                   to={child.href}
                                   className={`block px-4 py-4 mx-2 my-1
-  rounded-lg text-xs
-  transition-all duration-300
-  ${
-    isActive(child.href)
-      ? "bg-[var(--color-gradient)] text-black"
-      : "text-white/90 hover:bg-white/30 hover:text-white"
-  }
-`}
+                                    rounded-lg text-xs
+                                    transition-all duration-300
+                                    ${
+                                      isActive(child.href)
+                                        ? "bg-[var(--color-gradient)] text-black"
+                                        : "text-white/90 hover:bg-white/30 hover:text-white"
+                                    }
+                                  `}
                                 >
                                   <span className="flex items-center gap-3">
                                     {child.icon && (
@@ -235,19 +231,19 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Get In Touch Button */}
+            {/* Get In Touch Button — desktop only (xl+) */}
             <div className="hidden xl:block">
               <Link
                 to="/contactUs"
                 className="flex group items-center gap-3 px-6 py-2 border border-[var(--color-gradient)] rounded-full text-white 
-    hover:bg-[var(--color-gradient)] transition-all duration-300"
+                  hover:bg-[var(--color-gradient)] transition-all duration-300"
               >
                 <span className="text-sm">Get In Touch</span>
                 <ArrowRight size={18} />
               </Link>
             </div>
 
-            {/* Mobile menu button */}
+            {/* Toggle button — visible on screens below xl (< 1280px) */}
             <div className="xl:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -260,19 +256,34 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Navigation */}
+      {/* Mobile / Tablet Navigation — shows below xl */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-black z-40 xl:hidden pt-35 px-6">
-          <div className="flex flex-col space-y-6">
+        <div className="fixed top-0  inset-0 bg-black/50 h-full backdrop-blur transition-opacity duration-250 overflow-scroll opacity-100 pointer-events-auto
+         z-40 xl:hidden pt-28 px-6 overflow-y-hidden">
+          <div className="flex flex-col space-y-6 justify-self-center text-center">
             {navItems.map((item) => (
               <Link
+                key={item.name}
                 to={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="text-white text-xl font-medium border-b border-gray-800 pb-2"
+                className="text-white text-xl font-medium pb-2"
               >
                 {item.name}
               </Link>
             ))}
+
+            {/* Get In Touch Button — always visible in mobile menu */}
+            <div className="pt-4">
+              <Link
+                to="/contactUs"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex items-center justify-center gap-3 px-6 py-3 border border-[var(--color-gradient)] rounded-full text-white 
+                  hover:bg-[var(--color-gradient)] transition-all duration-300 w-50"
+              >
+                <span className="text-base">Get In Touch</span>
+                <ArrowRight size={18} />
+              </Link>
+            </div>
           </div>
         </div>
       )}

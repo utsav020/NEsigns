@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { MousePointer2, Printer, Mail, Monitor, Search } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 
@@ -111,10 +111,13 @@ const ServiceSection = () => {
           </div>
 
           <div className="flex items-center justify-center gap-6 md:ml-25 ml-0">
-            <div className="md:w-20 w-15 md:h-20 h-15 bg-[var(--color-gradient)] rounded-full flex items-center justify-center">
-              <img src="/images/WhiteArrow.png" alt="" />
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white">
+            <Link to="/services">
+              <div className="md:w-20 w-15 md:h-20 h-15 bg-[var(--color-gradient)] rounded-full flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300">
+                <img className="arrow-bounce"
+                src="/images/WhiteArrow.png" alt="Go to Services" />
+              </div>
+            </Link>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white ">
               our Services
             </h2>
           </div>
@@ -123,7 +126,7 @@ const ServiceSection = () => {
 
       {/* Services */}
       <motion.div
-        className="relative w-full container overflow-visible mt-0 md:mt-20 lg:mt-30"
+        className="relative w-full container mt-0 md:mt-20 lg:mt-30"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}

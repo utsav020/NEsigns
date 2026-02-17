@@ -64,6 +64,7 @@ export default function BrandStandOut() {
               <span className="text-white text-5xl md:text-7xl lg:text-8xl">
                 PRINT THAT MAKES{' '}
               </span>
+              <br className='2xl:hidden block'/>
               <span className="text-5xl md:text-7xl lg:text-8xl text-[var(--color-primary)]">
                 YOUR BRAND
               </span>
