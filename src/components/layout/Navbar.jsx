@@ -104,12 +104,22 @@ export default function Navbar() {
 
   useEffect(() => {
     if (isMenuOpen) {
+      // Lock both body and html to prevent ALL scrolling
       document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+      document.documentElement.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.documentElement.style.overflow = "";
     }
     return () => {
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.documentElement.style.overflow = "";
     };
   }, [isMenuOpen]);
 
@@ -136,8 +146,8 @@ export default function Navbar() {
                     className={`relative xl:text-[18px] md:text-sm tracking-wide transition-colors duration-300
                       ${
                         isActive(item.href, item)
-                          ? "text-[var(--color-gradient)]"
-                          : "text-white hover:text-[var(--color-gradient)]"
+                          ? "text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-gradient)] to-[var(--color-primary)]"
+                          : "text-white hover:text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-gradient)] to-[var(--color-primary)] "
                       }
                     `}
                   >
@@ -165,7 +175,7 @@ export default function Navbar() {
                               transition-all duration-300
                               ${
                                 isActive(sub.href)
-                                  ? "bg-[var(--color-gradient)] text-black"
+                                  ? "bg-gradient-to-r from-[var(--color-gradient)] to-[var(--color-primary)] text-black"
                                   : "text-white/90 hover:bg-white/30 hover:text-white"
                               }
                             `}
@@ -205,7 +215,7 @@ export default function Navbar() {
                                     transition-all duration-300
                                     ${
                                       isActive(child.href)
-                                        ? "bg-[var(--color-gradient)] text-black"
+                                        ? "bg-gradient-to-r from-[var(--color-gradient)] to-[var(--color-primary)] text-black"
                                         : "text-white/90 hover:bg-white/30 hover:text-white"
                                     }
                                   `}
